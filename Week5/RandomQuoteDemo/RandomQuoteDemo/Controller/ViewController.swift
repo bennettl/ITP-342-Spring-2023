@@ -9,9 +9,6 @@ import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate {
 
-    private let TAG_GRAY_TEXTFIELD = 0
-
-    private let TAG_TEAL_TEXTFIELD = 1
 
     @IBOutlet weak var messageLabel: UILabel!
 
@@ -20,7 +17,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        UIApplication.shared
 
         let manager = QuoteManager.shared
 
@@ -33,23 +29,19 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
 
 
-    // Older -> dont need to implement
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        return true
-    }
+    @IBAction func generateDidTapped(_ sender: UIButton) {
 
-    // Newer , much easier to use
-    func textFieldDidChangeSelection(_ textField: UITextField) {
-        if textField.tag == TAG_GRAY_TEXTFIELD {
-            print("Gray \(textField.text)")
-        } else if textField.tag == TAG_TEAL_TEXTFIELD {
-            print("Teal \(textField.text)")
-        }
-    }
+        let quote = QuoteManager.shared.getRandomQuote()
 
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        print("\(#function)")
-        return true
+        // You use force unwrapping "!" when you need a value to exist or else your app doesn't make sense to continue execution
+
+        // Early stages of development, force unwrapping can help you reveals bugs in your code very quick. But you do not want to always force unwrap in production apps
+
+        // You use optional chaining or conditional binding when it's ok that a value doesn't exist, you ignore execution and move on
+
+        // Example of optional chaining
+        authorLabel.text = quote?.author
+        messageLabel.text = quote?.message
     }
 
 }
