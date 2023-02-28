@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Photos
 
 class ViewController: UIViewController, UITextFieldDelegate {
 
@@ -16,7 +17,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
 
         let manager = QuoteManager.shared
 

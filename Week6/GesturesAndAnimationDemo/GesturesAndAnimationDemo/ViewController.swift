@@ -37,7 +37,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // Create gesture recognizer
         let singleTap = UITapGestureRecognizer(
             target: self,
-            action: #selector(self.singleTapDidRecognized(tap:))
+            action: #selector(self.animateMovement(tap:))
         )
 
         let doubleTap = UITapGestureRecognizer(
@@ -59,6 +59,36 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
 //    func userDidSwipe(swipe: UISwipeGestureRecognizer) {
 //    }
+
+    @objc func animateMovement(tap: UITapGestureRecognizer){
+
+        let animator = UIViewPropertyAnimator(
+            duration: 1.0,
+            curve: .easeInOut
+        ) {
+            self.blueView.transform = CGAffineTransform(
+                translationX: -400,
+                y: 0
+            )
+        }
+
+        animator.addCompletion { _ in
+            self.blueView.transform = CGAffineTransform(
+                translationX: 400,
+                y: 0
+            )
+
+            let animatorBackToCenter = UIViewPropertyAnimator(
+                duration: 1.0,
+                curve: .easeInOut
+            ) {
+                self.blueView.transform = CGAffineTransform(translationX: 0, y: 0)
+            }
+            animatorBackToCenter.startAnimation()
+        }
+
+        animator.startAnimation()
+    }
 
     @objc func singleTapDidRecognized(tap: UITapGestureRecognizer) {
         print("Single Tap")
