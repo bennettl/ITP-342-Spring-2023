@@ -10,15 +10,12 @@ import Photos
 
 class ViewController: UIViewController, UITextFieldDelegate {
 
-
     @IBOutlet weak var messageLabel: UILabel!
 
     @IBOutlet weak var authorLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let manager = QuoteManager.shared
 
         let quote = Quote(author: "Bennett", message: "Hey everyone")
 
@@ -27,7 +24,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
         // Do any additional setup after loading the view.
     }
-
 
     @IBAction func generateDidTapped(_ sender: UIButton) {
 

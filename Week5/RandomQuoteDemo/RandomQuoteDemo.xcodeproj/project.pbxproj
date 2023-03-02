@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D6BDC4E29B043E300ABA8D6 /* NewQuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6BDC4D29B043E300ABA8D6 /* NewQuoteViewController.swift */; };
 		4D9D1A72299490830028FEE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9D1A71299490830028FEE7 /* AppDelegate.swift */; };
 		4D9D1A74299490830028FEE7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9D1A73299490830028FEE7 /* SceneDelegate.swift */; };
 		4D9D1A76299490830028FEE7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9D1A75299490830028FEE7 /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D6BDC4D29B043E300ABA8D6 /* NewQuoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewQuoteViewController.swift; sourceTree = "<group>"; };
 		4D9D1A6E299490830028FEE7 /* RandomQuoteDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomQuoteDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D9D1A71299490830028FEE7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4D9D1A73299490830028FEE7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 			children = (
 				4D9D1A75299490830028FEE7 /* ViewController.swift */,
 				4DEAA23B29ADA17D00775A72 /* QuotesViewController.swift */,
+				4D6BDC4D29B043E300ABA8D6 /* NewQuoteViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 			files = (
 				4D9D1A8C299493060028FEE7 /* QuoteManager.swift in Sources */,
 				4DEAA23C29ADA17D00775A72 /* QuotesViewController.swift in Sources */,
+				4D6BDC4E29B043E300ABA8D6 /* NewQuoteViewController.swift in Sources */,
 				4D9D1A8A299490E10028FEE7 /* Quote.swift in Sources */,
 				4D9D1A76299490830028FEE7 /* ViewController.swift in Sources */,
 				4D9D1A72299490830028FEE7 /* AppDelegate.swift in Sources */,

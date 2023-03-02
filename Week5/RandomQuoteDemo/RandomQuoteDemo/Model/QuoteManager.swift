@@ -24,7 +24,10 @@ class QuoteManager {
         quotes.count
     }
 
-    private init(){}
+    private init(){
+
+    }
+
 
     // Get
 
@@ -55,7 +58,6 @@ class QuoteManager {
     func add(quote: Quote) {
         quotes.append(quote)
     }
-
 
     // Removing
     func remove(at index: Int) {
