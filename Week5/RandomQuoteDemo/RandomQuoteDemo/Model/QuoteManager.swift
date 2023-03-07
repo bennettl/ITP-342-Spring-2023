@@ -24,10 +24,15 @@ class QuoteManager {
         quotes.count
     }
 
+    let quotesFilePath: URL
+
     private init(){
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
 
+        quotesFilePath = URL(string:"\(documentsDirectory)/quotes.json")!
+
+        load()
     }
-
 
     // Get
 
@@ -57,18 +62,56 @@ class QuoteManager {
     // Add
     func add(quote: Quote) {
         quotes.append(quote)
+        save()
     }
 
     // Removing
     func remove(at index: Int) {
         quotes.remove(at: index)
+        save()
     }
 
     // Update
     func update(quote: Quote, at index: Int) {
         quotes[index] = quote
+        save()
     }
 
+
+    // Write -> saving to disk
+    func save() {
+        // Codable API
+        // 1. Data you want to save needs to conform to "Codable" Protocol
+        // 2. Use a custom encoder to encode to file system
+
+        let encoder = JSONEncoder()
+
+        do {
+            let data = try encoder.encode(quotes)
+            let jsonString = String(data: data, encoding: .utf8)!
+
+            try jsonString.write(to: quotesFilePath, atomically: true, encoding: .utf8)
+
+        } catch {
+            print(error)
+        }
+
+    }
+
+    // Read -> reading from disk
+    func load() {
+
+        do {
+            let decoder = JSONDecoder()
+            let data = try Data(contentsOf: quotesFilePath)
+            let decodedQuotes = try decoder.decode(Array<Quote>.self, from: data)
+
+            quotes = decodedQuotes
+        } catch {
+            print(error)
+        }
+
+    }
 
 
 }
